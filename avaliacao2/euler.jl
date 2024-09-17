@@ -4,11 +4,12 @@ function euler(f, x0, y0, n, ponto)
     yi = y0
     xi = x0
 
-    for i in 0:n-1
+    for i in 0:n
         println("y(", round(xi, digits=3), ") = ", round(yi, digits=3))
         yi = yi + h*f(xi, yi)
         xi += h
     end
+
     println("y(", round(xi, digits=3), ") = ", round(yi, digits=3))
     return yi
 end
@@ -62,7 +63,7 @@ function main()
     println(y)
 
     #questao 2
-    a(v, t) = -9.8 - 0.002/0.11*v*abs(v)  
+    a(t, v) = -9.8 - (0.002/0.11)*v*abs(v)  
     vel = euler(a, 0, 8, 10, 1) 
 
     #questao 3

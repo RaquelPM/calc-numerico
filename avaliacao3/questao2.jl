@@ -3,7 +3,6 @@ function trapezio_composto(y, h, n)
     soma += y[1]
     soma += y[n+1]
     for i in 2:n
-        #println("I: ", i)
         soma += 2 * y[i]
     end
     return soma * (h/2)

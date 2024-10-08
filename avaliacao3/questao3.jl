@@ -24,13 +24,14 @@ function gauss_seidel(A, b, n, iter_max)
 end
 
 function main()
-    A = [[1, 0.2, 0.2], [0.75, 1, 0.25], [0.5, 0.5 , 1]]
+    A = [[3, -1, 1], [3, 3, 7], [3, 6 , 2]]
     for i in 1:3
+        A[i] = A[i]/A[i][i]
+        b[i] = b[i]/A[i][i]
         A[i][i] = 0
     end
-    b = [1, 1.5, 0]
-    println(gauss_seidel(A, b, 3, 4))
-    
+    b = [1, 4, 0]
+    println(gauss_seidel(A, b, 3, 100))
 
 end
 

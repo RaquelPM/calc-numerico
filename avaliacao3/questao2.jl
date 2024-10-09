@@ -9,7 +9,7 @@ function trapezio_composto(y, h, n)
 end
 
 function main()
-    f(x) = -5*x^2 -3*x
+    f(x) = 5*x^2 + 3*x + 2
     
     n = 5
     y = zeros(Float64, (1, n+1))

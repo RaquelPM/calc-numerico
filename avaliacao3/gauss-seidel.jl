@@ -3,7 +3,7 @@ using Printf
 
 function gauss_seidel(A, b, n, iter_max)
     x_k = zeros(Float64, (n, 1))
-
+    x_k[1] = -x_k[1]
     A_0 = copy(A)
     b_0 = copy(b)
 
@@ -15,9 +15,9 @@ function gauss_seidel(A, b, n, iter_max)
 
     i = 0
     e = norm(A_0*x_k - b_0, 2)
-    println("      i      |           x           |     e     |")
+    println("      i      |                x               |       e       |")
     while(e >= 0.001)
-        printf("      %d      |   (%.3f, %.3f, %,3f)      |     %.3f     \n", i, x_k[1], x_k[2], x_[3])
+        @printf("      %d      |     (%.3f, %.3f, %.3f)     |     %.3f     |\n", i, x_k[1], x_k[2], x_k[3], e)
         x_k[1] = b[1]
         aux = 0
         for i in 2:n

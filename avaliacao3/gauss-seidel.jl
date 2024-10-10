@@ -1,4 +1,5 @@
 using LinearAlgebra
+using Printf
 
 function gauss_seidel(A, b, n, iter_max)
     x_k = zeros(Float64, (n, 1))
@@ -12,7 +13,11 @@ function gauss_seidel(A, b, n, iter_max)
         A[i, i] = 0
     end
 
-    while(norm(A_0*x_k - b_0, 2) >= 0.001)
+    i = 0
+    e = norm(A_0*x_k - b_0, 2)
+    println("      i      |           x           |     e     |")
+    while(e >= 0.001)
+        printf("      %d      |   (%.3f, %.3f, %,3f)      |     %.3f     \n", i, x_k[1], x_k[2], x_[3])
         x_k[1] = b[1]
         aux = 0
         for i in 2:n
@@ -28,7 +33,9 @@ function gauss_seidel(A, b, n, iter_max)
             end
             x_k[i] -= aux
         end
-        # println(x_k)
+        e = norm(A_0*x_k - b_0, 2)
+        i += 1
     end
+    println("Vetor resultado: ")
     return x_k
 end

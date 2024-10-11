@@ -1,7 +1,7 @@
 using LinearAlgebra
 using Printf
 
-function gauss_seidel(A, b, n, iter_max)
+function gauss_seidel(A, b, n)
     x_k = zeros(Float64, (n, 1))
     x_k[1] = -x_k[1]
     A_0 = copy(A)
@@ -14,10 +14,15 @@ function gauss_seidel(A, b, n, iter_max)
     end
 
     i = 0
+    println("")
     e = norm(A_0*x_k - b_0, 2)
-    println("      i      |                x               |       e       |")
+    println("      i      |                xi               |       e       ")
     while(e >= 0.001)
-        @printf("      %d      |     (%.3f, %.3f, %.3f)     |     %.3f     |\n", i, x_k[1], x_k[2], x_k[3], e)
+        if(n == 4)
+            @printf("      %d      |     (%.3f, %.3f, %.3f, %.3f)      |     %.3f     \n", i, x_k[1], x_k[2], x_k[3], x_k[4], e)
+        else
+            @printf("      %d      |     (%.3f, %.3f, %.3f)      |     %.3f     \n", i, x_k[1], x_k[2], x_k[3], e)
+        end
         x_k[1] = b[1]
         aux = 0
         for i in 2:n
@@ -36,6 +41,7 @@ function gauss_seidel(A, b, n, iter_max)
         e = norm(A_0*x_k - b_0, 2)
         i += 1
     end
+    println("")
     println("Vetor resultado: ")
     return x_k
 end

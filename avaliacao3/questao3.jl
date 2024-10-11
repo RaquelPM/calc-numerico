@@ -5,7 +5,7 @@ function main()
     b = 1.0*[1;0;4]
     
 
-    println(gauss_seidel(A, b, 3, 100))
+    println(gauss_seidel(A, b, 3))
 end
 
 main()

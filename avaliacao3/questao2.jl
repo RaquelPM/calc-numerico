@@ -26,7 +26,7 @@ function main()
         x_i += h
     end
     
-    println("Vetor resultado: ")
+    
     println(trapezio_composto(y, h, n))
     
 

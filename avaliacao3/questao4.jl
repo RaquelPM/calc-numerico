@@ -19,7 +19,7 @@ function main()
     swap_cols(A, 1, 4)
     swap_cols(A, 2, 3)
     
-    x = gauss_seidel(A, b, 4, 1000)
+    x = gauss_seidel(A, b, 4)
     
     swap_rows(x, 1, 4)
     swap_rows(x, 2, 3)
